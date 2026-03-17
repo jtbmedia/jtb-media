@@ -78,6 +78,36 @@ const nextConfig = {
         destination: '/meppel',
         permanent: true,
       },
+      // Console reparatie spelcomputers
+      {
+        source: '/reparatie/console-reparatie-spelcomputers{/}?',
+        destination: '/reparatie/spelcomputer',
+        permanent: true,
+      },
+      // Diensten/clouddiensten → zakelijk/servers-cloud
+      {
+        source: '/diensten/clouddiensten{/}?',
+        destination: '/zakelijk/servers-cloud',
+        permanent: true,
+      },
+      // Reparatie aanmelden → afspraak
+      {
+        source: '/reparatie-aanmelden{/}?',
+        destination: '/afspraak',
+        permanent: true,
+      },
+      // Offerte aanvragen (old path under /reparatie/)
+      {
+        source: '/reparatie/offerte-aanvragen{/}?',
+        destination: '/offerte-aanvragen',
+        permanent: true,
+      },
+      // SOS → contact
+      {
+        source: '/sos{/}?',
+        destination: '/contact',
+        permanent: true,
+      },
     ]
   },
 
