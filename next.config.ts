@@ -6,6 +6,111 @@ const nextConfig = {
   // Read more: https://opennext.js.org/cloudflare/howtos/workerd
   serverExternalPackages: ['jose', 'pg-cloudflare'],
 
+  async redirects() {
+    return [
+      // Spelcomputer (gaming console) redirects
+      {
+        source: '/reparaties/spelcomputer-reparatie{/}?',
+        destination: '/reparatie/spelcomputer',
+        permanent: true,
+      },
+      {
+        source: '/reparaties/spelcomputer-reparatie/sony-playstation-reparatie{/}?',
+        destination: '/reparatie/spelcomputer',
+        permanent: true,
+      },
+      {
+        source: '/reparaties/spelcomputer-reparatie/nintendo-switch-reparatie{/}?',
+        destination: '/reparatie/spelcomputer/nintendo-switch',
+        permanent: true,
+      },
+      {
+        source: '/reparaties/nintendo-switch-reparatie{/}?',
+        destination: '/reparatie/spelcomputer/nintendo-switch',
+        permanent: true,
+      },
+      {
+        source: '/reparaties/microsoft-xbox-reparatie{/}?',
+        destination: '/reparatie/spelcomputer',
+        permanent: true,
+      },
+      // Telefoon redirects
+      {
+        source: '/reparaties/telefoon-reparatie{/}?',
+        destination: '/reparatie/telefoon',
+        permanent: true,
+      },
+      {
+        source: '/home/telefoon-reparatie{/}?',
+        destination: '/reparatie/telefoon',
+        permanent: true,
+      },
+      // iPhone redirects
+      {
+        source: '/iphone-reparatie{/}?',
+        destination: '/reparatie/telefoon',
+        permanent: true,
+      },
+      {
+        source: '/reparaties/iphone-reparatie{/}?',
+        destination: '/reparatie/telefoon',
+        permanent: true,
+      },
+      {
+        source: '/iphone-reparatie-meppel{/}?',
+        destination: '/meppel/iphone-reparatie',
+        permanent: true,
+      },
+      {
+        source: '/reparaties/iphone-reparatie-meppel{/}?',
+        destination: '/meppel/iphone-reparatie',
+        permanent: true,
+      },
+      // Meppel telefoon redirect
+      {
+        source: '/reparaties/telefoon-reparatie-meppel{/}?',
+        destination: '/meppel/telefoon-reparatie',
+        permanent: true,
+      },
+      // Havelte redirect (no dedicated page, nearest location is Meppel)
+      {
+        source: '/havelte{/}?',
+        destination: '/meppel',
+        permanent: true,
+      },
+      // Console reparatie spelcomputers
+      {
+        source: '/reparatie/console-reparatie-spelcomputers{/}?',
+        destination: '/reparatie/spelcomputer',
+        permanent: true,
+      },
+      // Diensten/clouddiensten → zakelijk/servers-cloud
+      {
+        source: '/diensten/clouddiensten{/}?',
+        destination: '/zakelijk/servers-cloud',
+        permanent: true,
+      },
+      // Reparatie aanmelden → afspraak
+      {
+        source: '/reparatie-aanmelden{/}?',
+        destination: '/afspraak',
+        permanent: true,
+      },
+      // Offerte aanvragen (old path under /reparatie/)
+      {
+        source: '/reparatie/offerte-aanvragen{/}?',
+        destination: '/offerte-aanvragen',
+        permanent: true,
+      },
+      // SOS → contact
+      {
+        source: '/sos{/}?',
+        destination: '/contact',
+        permanent: true,
+      },
+    ]
+  },
+
   // Your Next.js config here
   webpack: (webpackConfig: any) => {
     webpackConfig.resolve.extensionAlias = {
