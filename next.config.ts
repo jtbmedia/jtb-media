@@ -6,6 +6,31 @@ const nextConfig = {
   // Read more: https://opennext.js.org/cloudflare/howtos/workerd
   serverExternalPackages: ['jose', 'pg-cloudflare'],
 
+  async redirects() {
+    return [
+      {
+        source: '/reparaties/spelcomputer-reparatie',
+        destination: '/reparatie/spelcomputer',
+        permanent: true,
+      },
+      {
+        source: '/reparaties/spelcomputer-reparatie/',
+        destination: '/reparatie/spelcomputer',
+        permanent: true,
+      },
+      {
+        source: '/reparaties/spelcomputer-reparatie/sony-playstation-reparatie',
+        destination: '/reparatie/spelcomputer',
+        permanent: true,
+      },
+      {
+        source: '/reparaties/spelcomputer-reparatie/sony-playstation-reparatie/',
+        destination: '/reparatie/spelcomputer',
+        permanent: true,
+      },
+    ]
+  },
+
   // Your Next.js config here
   webpack: (webpackConfig: any) => {
     webpackConfig.resolve.extensionAlias = {
